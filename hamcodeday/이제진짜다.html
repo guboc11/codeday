@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>빙글빙글~~</title>
+    <h1>돌림판</h1>
+    <style>
+        body {
+            text-align: left;
+            margin-top: 150px;
+        }
+        .wheel-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 5px solid black;
+            position: relative;
+            overflow: hidden;
+        }
+        .segment {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0 0;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: left;
+        }
+        .segment div {
+            transform: rotate(-60deg);
+            width: 100%;
+            text-align: center;
+            color: black;
+            
+        }
+        .pointer {
+            width: 10;
+            height: 1000;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 30px solid black;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wheel-container">
+        <div class="wheel" id="wheel"></div>
+        <div class="pointer"></div>
+    </div>
+    <div class="button-container">
+        <button onclick="spin()">Spin</button>
+        <button onclick="stop()">Stop</button>
+    </div>
+
+    <script>
+        let currentRotation = 0;
+        let isSpinning = false;
+        const segments = [
+            { name: '종우', color: 'red' },
+            { name: '세환', color: 'orange' },
+            { name: '예담', color: 'yellow' },
+            { name: '태원', color: 'green' },
+            { name: '현희', color: 'blue' },
+            { name: '서진', color: 'purple' }  
+        ];
+
+        function createWheel() {
+            const wheel = document.getElementById('wheel');
+            wheel.innerHTML = '';
+            const numSegments = segments.length;
+            const angle = 360 / numSegments;
+
+            segments.forEach((segment, index) => {
+                const segmentElement = document.createElement('div');
+                segmentElement.className = 'segment';
+                segmentElement.style.backgroundColor = segment.color;
+                segmentElement.style.transform = `rotate(${angle * index}deg) skewY(${90 - angle}deg)`;
+                
+                const content = document.createElement('div');
+                content.style.transform = `skewY(-${90 - angle}deg) rotate(${angle / 2}deg)`;
+                content.innerHTML = segment.name;
+
+                segmentElement.appendChild(content);
+                wheel.appendChild(segmentElement);
+            });
+        }
+
+        function spin() {
+            if (isSpinning) return;
+            isSpinning = true;
+            const wheel = document.getElementById('wheel');
+            const deg = Math.floor(5000 + Math.random() * 5000);
+            currentRotation += deg;
+            wheel.style.transition = 'transform 5s ease-out';
+            wheel.style.transform = `rotate(${currentRotation}deg)`;
+        }
+
+        function stop() {
+            if (!isSpinning) return;
+            const wheel = document.getElementById('wheel');
+            const computedStyle = window.getComputedStyle(wheel);
+            const matrix = new WebKitCSSMatrix(computedStyle.transform);
+            const currentRotationDeg = Math.atan2(matrix.m21, matrix.m11) * (180 / Math.PI);
+
+            wheel.style.transition = 'none';
+            wheel.style.transform = `rotate(${currentRotationDeg}deg)`;
+            isSpinning = false;
+        }
+
+        createWheel();
+    </script>
+</body>
+</html>
