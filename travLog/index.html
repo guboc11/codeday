@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<style>
+	.myDiv {
+  border: 2px outset hwb(266 16% 20%);
+  border-radius: 25px;
+  background-color: lightblue;    
+  text-align: center;
+  width: 300px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+	}
+
+	.menu {
+		display: flex;
+		justify-content: space-between;
+	}
+	.title {
+		text-align: center;
+	}
+
+	img {
+		max-width: 3000px;
+		height: auto;
+	  }
+
+	  .image-container {
+		width: 100vw;
+		height: 250px;
+		overflow: hidden;
+		position: relative;
+		margin-bottom: 20px;
+	  }
+
+	.image-container img{
+		position: absolute;
+		top: -400px;
+		left:-100px;
+		width: 4000px;
+		height: 1000px;
+	}
+
+	.container {
+  position: relative;
+}
+
+.bottomright {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+
+img { 
+  width: 100%;
+  height: auto;
+  opacity: 0.7;
+}
+
+.glass-img {
+	width: 50px;
+	height: auto;
+}
+
+form{
+	width: auto;
+	height: auto
+
+}
+
+input[type=search]{
+width: 1000px;
+height: 60px;
+font-size: 16px;
+padding: 0px 20px 0px 20px;
+border-radius: 50px;
+outline: none;
+border: solid gray 2px;
+background: url('Search.png') 7px center no-repeat;
+}
+
+.iconmenu
+{
+	display: flex;
+
+}
+
+.icon-container img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.icon-container {
+		width: 50px;
+		height: 50;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 20px;
+
+	}
+
+</style>
+</head>
+<body>
+
+	<div class="title">
+		<h1>traVLOG</h1>
+
+	<form action="#">
+		<input type="search" placeholder="검색">
+		</form>
+
+	<h2>안녕하세요, 블록블록님! 여행 기록을 시작해볼까요?</h2>
+
+	<div class="iconmenu">
+		<div class="icon-container">
+			<img class="airplane-image" src="/Users/hhy/Downloads/airplane.png" alt="airplane">		
+		</div>
+		<div class="icon-container">
+			<img class="hotel-image" src="/Users/hhy/Downloads/free-icon-hotel-3009489.png" alt="hotel">
+		</div>
+		<div class="icon-container">
+			<img class="museum-image" src="/Users/hhy/Downloads/free-icon-museum-3936783.png" alt="museum">
+		</div>
+		<div class="icon-container">
+			<img class="cash-image" src="/Users/hhy/Downloads/free-icon-cash-payment-2543190.png" alt="cash">
+		</div>
+		<div class="icon-container">
+			<img class="photo-image" src="/Users/hhy/Downloads/free-icon-photograph-6078261.png" alt="photo">
+		</div>
+
+		</div>
+
+	<div class="menu">
+		<div class="myDiv">
+			<h4>프라하</h4>
+		</div>
+		<div class="myDiv">
+			<h4>비엔나</h4>
+		</div>
+		<div class="myDiv">
+			<h4>부다페스트</h4>
+		</div>
+		<div class="myDiv">
+			<h4>스플리트</h4>
+		</div>
+	</div>
+
+
+	</div>
+	
+	
+
+
+
+	</div>
+		<h1>    DAY 1</h1>
+		<hr color="black" size="3">
+		<p>프라하 날씨는 서울보다 훨씬 맑고 예쁘다. 오늘은 스트라호프 수도원 양조장에서 스비치코바와 굴라쉬를 먹었다. 함께 먹는 코젤 맥주는 더더욱 맛있다. </p>
+	
+
+	<div class="image-container">
+		<img class="prague-img" src="/Users/hhy/Desktop/prague.jpg" alt="prague">
+		<div class="bottomright">Prague</div>
+	</div>
+
+		<h1>    DAY 2</h1>
+		<hr color="black" size="3">
+		<p>비엔나 하면 영화 비포선라이즈가 생각난다. 예술의 전당, 핫도그 가게, LP샵, 프라터 놀이공원 등등 거리마다 예쁜 풍경과 즐길거리가 많아서 즐거웠다.</p>
+
+		<div class="image-container">
+			<img src="/Users/hhy/Desktop/vienna.jpg" alt="vienna">
+			<div class="bottomright">Vienna</div>
+	
+		</div>
+
+		<h1>    DAY 3</h1>
+		<hr color="black" size="3">
+		<p>오늘의 여행 일기를 작성해보세요!</p>
+
+		<div class="image-container">
+			<img src="/Users/hhy/Desktop/buda.jpg" alt="budapest">
+			<div class="bottomright">Budapest</div>
+</body>
+</html>
